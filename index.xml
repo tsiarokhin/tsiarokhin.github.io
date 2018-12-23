@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maxim Teryokhin</title>
+    <link>https://termax.me/</link>
+    <description>Recent content on Maxim Teryokhin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Dec 2018 00:23:13 +0300</lastBuildDate>
+    
+	<atom:link href="https://termax.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello world</title>
+      <link>https://termax.me/posts/helloworld/</link>
+      <pubDate>Mon, 24 Dec 2018 00:23:13 +0300</pubDate>
+      
+      <guid>https://termax.me/posts/helloworld/</guid>
+      <description>Let this be my first post.</description>
+    </item>
+    
+  </channel>
+</rss>

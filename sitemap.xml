@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://termax.me/posts/helloworld/</loc>
+    <lastmod>2018-12-24T00:23:13+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://termax.me/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://termax.me/</loc>
+    <lastmod>2018-12-24T00:23:13+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://termax.me/posts/</loc>
+    <lastmod>2018-12-24T00:23:13+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://termax.me/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
