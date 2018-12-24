@@ -6,9 +6,37 @@
     <description>Recent content in Tags on Maxim Teryokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Mon, 24 Dec 2018 18:42:00 +0300</lastBuildDate>
     
 	<atom:link href="https://termax.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Azure</title>
+      <link>https://termax.me/tags/azure/</link>
+      <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
+      
+      <guid>https://termax.me/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bot Framework</title>
+      <link>https://termax.me/tags/bot-framework/</link>
+      <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
+      
+      <guid>https://termax.me/tags/bot-framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cortana</title>
+      <link>https://termax.me/tags/cortana/</link>
+      <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
+      
+      <guid>https://termax.me/tags/cortana/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

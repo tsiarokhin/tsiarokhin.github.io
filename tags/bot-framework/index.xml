@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Maxim Teryokhin</title>
-    <link>https://termax.me/posts/</link>
-    <description>Recent content in Posts on Maxim Teryokhin</description>
+    <title>Bot Framework on Maxim Teryokhin</title>
+    <link>https://termax.me/tags/bot-framework/</link>
+    <description>Recent content in Bot Framework on Maxim Teryokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 24 Dec 2018 18:42:00 +0300</lastBuildDate>
     
-	<atom:link href="https://termax.me/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://termax.me/tags/bot-framework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <description>When you try to create Cortana channel using Microsoft Bot Framework you may get the error saying &amp;ldquo;Cortana channel cannot be added&amp;rdquo;:
 This happens because Cortana Skills can&amp;rsquo;t be created using Azure Active Directory accounts (source).
 Workaround You must register a regular MSA account (like @outlook.com) or use your existing one. Using your AAD account, open Azure portal, navigate to Bot Channels Registration -&amp;gt; Access control (IAM). Click Add role assignment and assign owner role to your MSA account:</description>
-    </item>
-    
-    <item>
-      <title>Hello world</title>
-      <link>https://termax.me/posts/hello-world/</link>
-      <pubDate>Mon, 24 Dec 2018 00:23:13 +0300</pubDate>
-      
-      <guid>https://termax.me/posts/hello-world/</guid>
-      <description>Let this be my first post.
-/* * C# Code example */ using System; using System.Collections.Generic; using System.Linq; using System.Text; namespace Program { class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } }</description>
     </item>
     
   </channel>
