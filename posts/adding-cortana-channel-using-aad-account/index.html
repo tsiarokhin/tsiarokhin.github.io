@@ -9,16 +9,36 @@
     <meta name="description" content="Maxim Teryokhin&#39;s personal website and blog">
     <meta name="keywords" content="blog,developer">
 
-    <base href="https://termax.me">
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Adding Cortana channel using Azure AD account"/>
+<meta name="twitter:description" content="When you try to create Cortana channel using Microsoft Bot Framework you may get the error saying &ldquo;Cortana channel cannot be added&rdquo;:
+This happens because Cortana Skills can&rsquo;t be created using Azure Active Directory accounts (source).
+Workaround You must register a regular MSA account (like @outlook.com) or use your existing one. Using your AAD account, open Azure portal, navigate to Bot Channels Registration -&gt; Access control (IAM). Click Add role assignment and assign owner role to your MSA account:"/>
+
+    <meta property="og:title" content="Adding Cortana channel using Azure AD account" />
+<meta property="og:description" content="When you try to create Cortana channel using Microsoft Bot Framework you may get the error saying &ldquo;Cortana channel cannot be added&rdquo;:
+This happens because Cortana Skills can&rsquo;t be created using Azure Active Directory accounts (source).
+Workaround You must register a regular MSA account (like @outlook.com) or use your existing one. Using your AAD account, open Azure portal, navigate to Bot Channels Registration -&gt; Access control (IAM). Click Add role assignment and assign owner role to your MSA account:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://termax.me/posts/adding-cortana-channel-using-aad-account/" />
+<meta property="article:published_time" content="2018-12-24T18:42:00+03:00" />
+<meta property="article:modified_time" content="2018-12-24T18:42:00+03:00" />
+
+
+    
+      <base href="https://termax.me/posts/adding-cortana-channel-using-aad-account/">
+    
     <title>
   Adding Cortana channel using Azure AD account · Maxim Teryokhin
 </title>
 
-    <link rel="canonical" href="https://termax.me/posts/adding-cortana-channel-using-aad-account/">
+    
+      <link rel="canonical" href="https://termax.me/posts/adding-cortana-channel-using-aad-account/">
+    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:300,700|Source+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
@@ -31,22 +51,22 @@
     
 
     
-      <link rel="stylesheet" href="https://termax.me/css/sharingbuttons.css">
+      <link rel="stylesheet" href="https://termax.me/css/sharingbuttons.css" />
     
 
+    
+    
     <link rel="icon" type="image/png" href="https://termax.me/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://termax.me/images/favicon-16x16.png" sizes="16x16">
 
-    
-
-    <meta name="generator" content="Hugo 0.52" />
+    <meta name="generator" content="Hugo 0.58.3" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://termax.me">
+    <a class="navigation-title" href="https://termax.me/">
       Maxim Teryokhin
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -120,7 +140,7 @@ This happens because Cortana Skills can&rsquo;t be created using Azure Active Di
       </div>
 
       <footer>
-        <a class="resp-sharing-button__link" href="https://feedburner.google.com/fb/a/mailverify?uri=termax&loc=en_US" target="_blank" aria-label="Subscribe by email">
+	    <a class="resp-sharing-button__link" href="https://feedburner.google.com/fb/a/mailverify?uri=termax&loc=en_US" target="_blank" aria-label="Subscribe by email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17 0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1 0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08 0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg></div>Subscribe</div>
 </a>
@@ -142,27 +162,13 @@ This happens because Cortana Skills can&rsquo;t be created using Azure Active Di
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
 	</div>Share</div>
 </a>
+        
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "termax-me" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+        <div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+        
       </footer>
     </article>
 
