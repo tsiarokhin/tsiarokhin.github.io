@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Maxim Teryokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Dec 2018 18:42:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate>
     
 	<atom:link href="https://termax.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>D365 business events error</title>
+      <link>https://termax.me/posts/d365-business-events-error/</link>
+      <pubDate>Sat, 08 Feb 2020 21:01:34 +0300</pubDate>
+      
+      <guid>https://termax.me/posts/d365-business-events-error/</guid>
+      <description>Problem Starting February 2020 a strange thing happened on our D365: all business events connected to Microsoft Flow suddenly stopped working. Under errors tab in business events workspace it shows this exception: The underlying connection was closed: An unexpected error occurred on a send. Doing some research hasn&amp;rsquo;t helped much - all I got is this exception message is somehow related to security protocols and TLS 1.2.
+Turns out this error occurs only is you are using .</description>
+    </item>
     
     <item>
       <title>Adding Cortana channel using Azure AD account</title>
@@ -29,7 +39,7 @@ Workaround You must register a regular MSA account (like @outlook.com) or use yo
       
       <guid>https://termax.me/posts/hello-world/</guid>
       <description>Let this be my first post.
-/* * C# Code example */ using System; using System.Collections.Generic; using System.Linq; using System.Text; namespace Program { class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } </description>
+/* * C# syntax highlight test */ using System; using System.Collections.Generic; using System.Linq; using System.Text; namespace Program { class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } </description>
     </item>
     
   </channel>
