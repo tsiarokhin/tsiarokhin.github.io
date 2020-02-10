@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maxim Teryokhin</title>
@@ -39,7 +39,7 @@ Workaround You must register a regular MSA account (like @outlook.com) or use yo
       
       <guid>https://termax.me/posts/hello-world/</guid>
       <description>Let this be my first post.
-/* * C# syntax highlight test */ using System; using System.Collections.Generic; using System.Linq; using System.Text; namespace Program { class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } </description>
+/** C# syntax highlight test*/using System;using System.Collections.Generic;using System.Linq;using System.Text;namespace Program{class Program{static void Main(string[] args){Console.WriteLine(&amp;#34;Hello world!&amp;#34;);}}}</description>
     </item>
     
   </channel>
