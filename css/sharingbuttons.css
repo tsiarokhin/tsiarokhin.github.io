@@ -10,6 +10,12 @@
   margin: 0.5em
 }
 
+@media (prefers-color-scheme: dark) {
+    .resp-sharing-button__link {
+	  color: #fff!important;
+	}
+}
+
 .resp-sharing-button {
   border-radius: 5px;
   transition: 25ms ease-out;

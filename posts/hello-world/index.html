@@ -55,7 +55,7 @@
     
 
     
-      <link rel="stylesheet" href="https://termax.me/css/sharingbuttons.css" />
+      <link rel="stylesheet" href="https://termax.me/css/sharingbuttons.min.css" />
     
 
     
@@ -176,7 +176,10 @@
 </a>
 		<div class="commentbox"></div>
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-<script>commentBox('5694748627042304-proj');</script>
+<script async>
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+commentBox('5694748627042304-proj', {textColor: prefersDark?"white":"black"});
+</script>
         
         
         
