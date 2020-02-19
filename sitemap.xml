@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://termax.me/tags/.net/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://termax.me/tags/ax/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url>
@@ -29,6 +24,11 @@
   
   <url>
     <loc>https://termax.me/posts/d365-business-events-error/</loc>
+    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://termax.me/tags/dotnet/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url>
   
