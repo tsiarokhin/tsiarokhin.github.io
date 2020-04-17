@@ -17,8 +17,8 @@
       <pubDate>Sat, 08 Feb 2020 21:01:34 +0300</pubDate>
       
       <guid>https://termax.me/posts/d365-business-events-error/</guid>
-      <description>Problem Starting February 2020 a strange thing happened on our D365: all business events connected to Microsoft Flow suddenly stopped working. Under errors tab in business events workspace it shows this exception: The underlying connection was closed: An unexpected error occurred on a send. Doing some research hasn&amp;rsquo;t helped much - all I got is this exception message is somehow related to security protocols and TLS 1.2.
-Turns out this error occurs only is you are using .</description>
+      <description>Problem Starting February 2020 a strange thing happened on our D365: all business events connected to Microsoft Flow suddenly stopped working. Under the errors tab in business events workspace, it shows this exception: The underlying connection was closed: An unexpected error occurred on a send. Doing some research hasn&amp;rsquo;t helped much - all I got is this exception message is somehow related to security protocols and TLS 1.2.
+Turns out this error occurs only if you are using .</description>
     </item>
     
     <item>
