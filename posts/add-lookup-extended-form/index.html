@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+  Add field lookup to extended form · Maksim Tsiarokhin
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Maksim Tsiarokhin">
+<meta name="description" content="Create new event handler class:
+class EZDNRParametersFormEventHandler { [FormDataSourceEventHandler(formDataSourceStr(DNRParameters, RORParameters), FormDataSourceEventType::Initialized)] public static void RORParameters_OnInitialized(FormDataSource _sender, FormDataSourceEventArgs _e) { _sender.object(fieldNum(RORParameters, EZExcessHoursCategoryId)).registerOverrideMethod( methodStr(FormDataObject, lookup), methodStr(EZDNRParametersFormEventHandler, excessHoursCategoryIdLookup), new EZDNRParametersFormEventHandler()); } public void excessHoursCategoryIdLookup(FormStringControl _control) { QueryBuildDataSource queryBuildDataSource; QueryBuildRange queryBuildRange; SysTableLookup sysTableLookup = SysTableLookup::newParameters(tableNum(ProjCategory), _control); sysTableLookup.addLookupfield(fieldNum(ProjCategory, CategoryId), true); sysTableLookup.addLookupfield(fieldNum(ProjCategory, Name)); Query query = new Query(); query.addDataSource(tableNum(ProjCategory)) .addRange(fieldNum(ProjCategory, CategoryType)) .value(queryValue(ProjCategoryType::Hour)); sysTableLookup.parmQuery(query); sysTableLookup.performFormLookup(); } } ">
+<meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Add field lookup to extended form"/>
+<meta name="twitter:description" content="Create new event handler class:
+class EZDNRParametersFormEventHandler { [FormDataSourceEventHandler(formDataSourceStr(DNRParameters, RORParameters), FormDataSourceEventType::Initialized)] public static void RORParameters_OnInitialized(FormDataSource _sender, FormDataSourceEventArgs _e) { _sender.object(fieldNum(RORParameters, EZExcessHoursCategoryId)).registerOverrideMethod( methodStr(FormDataObject, lookup), methodStr(EZDNRParametersFormEventHandler, excessHoursCategoryIdLookup), new EZDNRParametersFormEventHandler()); } public void excessHoursCategoryIdLookup(FormStringControl _control) { QueryBuildDataSource queryBuildDataSource; QueryBuildRange queryBuildRange; SysTableLookup sysTableLookup = SysTableLookup::newParameters(tableNum(ProjCategory), _control); sysTableLookup.addLookupfield(fieldNum(ProjCategory, CategoryId), true); sysTableLookup.addLookupfield(fieldNum(ProjCategory, Name)); Query query = new Query(); query.addDataSource(tableNum(ProjCategory)) .addRange(fieldNum(ProjCategory, CategoryType)) .value(queryValue(ProjCategoryType::Hour)); sysTableLookup.parmQuery(query); sysTableLookup.performFormLookup(); } } "/>
+
+<meta property="og:title" content="Add field lookup to extended form" />
+<meta property="og:description" content="Create new event handler class:
+class EZDNRParametersFormEventHandler { [FormDataSourceEventHandler(formDataSourceStr(DNRParameters, RORParameters), FormDataSourceEventType::Initialized)] public static void RORParameters_OnInitialized(FormDataSource _sender, FormDataSourceEventArgs _e) { _sender.object(fieldNum(RORParameters, EZExcessHoursCategoryId)).registerOverrideMethod( methodStr(FormDataObject, lookup), methodStr(EZDNRParametersFormEventHandler, excessHoursCategoryIdLookup), new EZDNRParametersFormEventHandler()); } public void excessHoursCategoryIdLookup(FormStringControl _control) { QueryBuildDataSource queryBuildDataSource; QueryBuildRange queryBuildRange; SysTableLookup sysTableLookup = SysTableLookup::newParameters(tableNum(ProjCategory), _control); sysTableLookup.addLookupfield(fieldNum(ProjCategory, CategoryId), true); sysTableLookup.addLookupfield(fieldNum(ProjCategory, Name)); Query query = new Query(); query.addDataSource(tableNum(ProjCategory)) .addRange(fieldNum(ProjCategory, CategoryType)) .value(queryValue(ProjCategoryType::Hour)); sysTableLookup.parmQuery(query); sysTableLookup.performFormLookup(); } } " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tsiarokhin.com/posts/add-lookup-extended-form/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-03T20:17:50+01:00" />
+<meta property="article:modified_time" content="2022-05-03T20:17:50+01:00" />
+
+
+
+
+<link rel="canonical" href="https://tsiarokhin.com/posts/add-lookup-extended-form/">
+
+
+<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/sharingbuttons.min.cda0dd549ddf01f6a1bffb6914c8377aeff530f1132dbca76f3cfae82b747dbe.css" integrity="sha256-zaDdVJ3fAfahv/tpFMg3eu/1MPETLbynbzz66Ct0fb4=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+
+<link rel="manifest" href="https://tsiarokhin.com/site.webmanifest">
+<link rel="mask-icon" href="https://tsiarokhin.com/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0">
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight.min.f72ac213fce8f30c46fca32fe61693175bee45e5012f8f1c2a2f262ca6c05079.css" integrity="sha256-9yrCE/zo8wxG/KMv5haTF1vuReUBL48cKi8mLKbAUHk=" crossorigin="anonymous" media="screen" />
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight-dark.min.280da3d09a6210328b6e53337560c6cf347c82ed77e32765bb0b8e2f92bf3c0b.css" integrity="sha256-KA2j0JpiEDKLblMzdWDGzzR8gu134ydluwuOL5K/PAs=" crossorigin="anonymous" media="screen" />
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tsiarokhin.com/">
+      Maksim Tsiarokhin
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://tsiarokhin.com/posts/add-lookup-extended-form/">
+              Add field lookup to extended form
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-05-03T20:17:50&#43;01:00">
+                May 3, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://tsiarokhin.com/categories/snippets/">Snippets</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Create new event handler class:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">EZDNRParametersFormEventHandler</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="na">    [FormDataSourceEventHandler(formDataSourceStr(DNRParameters, RORParameters), FormDataSourceEventType::Initialized)]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">RORParameters_OnInitialized</span><span class="p">(</span><span class="n">FormDataSource</span> <span class="n">_sender</span><span class="p">,</span> <span class="n">FormDataSourceEventArgs</span> <span class="n">_e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_sender</span><span class="p">.</span><span class="kt">object</span><span class="p">(</span><span class="n">fieldNum</span><span class="p">(</span><span class="n">RORParameters</span><span class="p">,</span> <span class="n">EZExcessHoursCategoryId</span><span class="p">)).</span><span class="n">registerOverrideMethod</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">methodStr</span><span class="p">(</span><span class="n">FormDataObject</span><span class="p">,</span> <span class="n">lookup</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">methodStr</span><span class="p">(</span><span class="n">EZDNRParametersFormEventHandler</span><span class="p">,</span> <span class="n">excessHoursCategoryIdLookup</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">EZDNRParametersFormEventHandler</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">excessHoursCategoryIdLookup</span><span class="p">(</span><span class="n">FormStringControl</span> <span class="n">_control</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">QueryBuildDataSource</span>    <span class="n">queryBuildDataSource</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">QueryBuildRange</span>         <span class="n">queryBuildRange</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="n">SysTableLookup</span> <span class="n">sysTableLookup</span> <span class="p">=</span> <span class="n">SysTableLookup</span><span class="p">::</span><span class="n">newParameters</span><span class="p">(</span><span class="n">tableNum</span><span class="p">(</span><span class="n">ProjCategory</span><span class="p">),</span> <span class="n">_control</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sysTableLookup</span><span class="p">.</span><span class="n">addLookupfield</span><span class="p">(</span><span class="n">fieldNum</span><span class="p">(</span><span class="n">ProjCategory</span><span class="p">,</span> <span class="n">CategoryId</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sysTableLookup</span><span class="p">.</span><span class="n">addLookupfield</span><span class="p">(</span><span class="n">fieldNum</span><span class="p">(</span><span class="n">ProjCategory</span><span class="p">,</span> <span class="n">Name</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="n">Query</span> <span class="n">query</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Query</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">query</span><span class="p">.</span><span class="n">addDataSource</span><span class="p">(</span><span class="n">tableNum</span><span class="p">(</span><span class="n">ProjCategory</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">addRange</span><span class="p">(</span><span class="n">fieldNum</span><span class="p">(</span><span class="n">ProjCategory</span><span class="p">,</span> <span class="n">CategoryType</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="k">value</span><span class="p">(</span><span class="n">queryValue</span><span class="p">(</span><span class="n">ProjCategoryType</span><span class="p">::</span><span class="n">Hour</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sysTableLookup</span><span class="p">.</span><span class="n">parmQuery</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="n">sysTableLookup</span><span class="p">.</span><span class="n">performFormLookup</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2fadd-lookup-extended-form%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2ftsiarokhin.com%2fposts%2fadd-lookup-extended-form%2f" target="_blank" aria-label="Share on LinkedIn">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+	</div>Share</div>
+</a>
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2fadd-lookup-extended-form%2f" target="_blank" aria-label="Share on Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+	</div>Tweet</div>
+</a>
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ftsiarokhin.com%2fposts%2fadd-lookup-extended-form%2f" target="_blank" aria-label="Share on Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+	</div>Share</div>
+</a>
+<div class="commentbox"></div>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="https://tsiarokhin.com/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  <script data-goatcounter="https://tsiarokhin.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+let bodyStyle = getComputedStyle(document.body);
+commentBox('5694748627042304-proj', {textColor: bodyStyle.color, backgroundColor: bodyStyle.backgroundColor});
+
+document.addEventListener("themeChanged", function(){
+ let commentBoxIframe = document.querySelector("#commentbox > iframe");
+ let commentBoxUrl = new URL(commentBoxIframe.src);
+ let bodyStyle = getComputedStyle(document.body);
+ commentBoxUrl.searchParams.set("text_color", bodyStyle.color);
+ commentBoxUrl.searchParams.set("background_color", bodyStyle.backgroundColor);
+ commentBoxIframe.src = commentBoxUrl.toString();
+ });
+</script></body>
+
+</html>

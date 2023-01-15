@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Maksim Tsiarokhin</title>
-    <link>https://tsiarokhin.com/</link>
-    <description>Recent content on Maksim Tsiarokhin</description>
+    <title>D365FO on Maksim Tsiarokhin</title>
+    <link>https://tsiarokhin.com/tags/d365fo/</link>
+    <description>Recent content in D365FO on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Nov 2022 20:07:24 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 20:07:24 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/d365fo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get enum value in debugger</title>
       <link>https://tsiarokhin.com/posts/enum-value-debugger/</link>
@@ -63,27 +63,6 @@ class EZDNRParametersFormEventHandler { [FormDataSourceEventHandler(formDataSour
       <guid>https://tsiarokhin.com/posts/d365-business-events-error/</guid>
       <description>ProblemLink to headingStarting February 2020 a strange thing happened on our D365: all business events connected to Microsoft Flow suddenly stopped working. Under the errors tab in business events workspace, it shows this exception: The underlying connection was closed: An unexpected error occurred on a send.
 Doing some research hasn&amp;rsquo;t helped much - all I got is this exception message is somehow related to security protocols and TLS 1.</description>
-    </item>
-    
-    <item>
-      <title>Adding Cortana channel using Azure AD account</title>
-      <link>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</link>
-      <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
-      
-      <guid>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</guid>
-      <description>When you try to create Cortana channel using Microsoft Bot Framework you may get the error saying &amp;ldquo;Cortana channel cannot be added&amp;rdquo;:
-This happens because Cortana Skills can&amp;rsquo;t be created using Azure Active Directory accounts (source).
-WorkaroundLink to headingYou must register a regular MSA account (like @outlook.com) or use your existing one. Using your AAD account, open Azure portal, navigate to Bot Channels Registration -&amp;gt; Access control (IAM). Click Add role assignment and assign owner role to your MSA account:</description>
-    </item>
-    
-    <item>
-      <title>Hello world</title>
-      <link>https://tsiarokhin.com/posts/hello-world/</link>
-      <pubDate>Mon, 24 Dec 2018 00:23:13 +0300</pubDate>
-      
-      <guid>https://tsiarokhin.com/posts/hello-world/</guid>
-      <description>Let this be my first post.
-/* * C# syntax highlight test */ using System; using System.Collections.Generic; using System.Linq; using System.Text; namespace Program { class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } </description>
     </item>
     
   </channel>

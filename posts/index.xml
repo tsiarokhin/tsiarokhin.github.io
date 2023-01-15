@@ -6,9 +6,57 @@
     <description>Recent content in Posts on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 20:07:24 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>D365 business events error</title>
+      <title>Get enum value in debugger</title>
+      <link>https://tsiarokhin.com/posts/enum-value-debugger/</link>
+      <pubDate>Mon, 07 Nov 2022 20:07:24 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/enum-value-debugger/</guid>
+      <description>It&amp;rsquo;s annoying when the debugger displays an integer instead of actual enum parameter. One way to see it is to paste the following code to the Immediate Window:
+Microsoft.Dynamics.Ax.Xpp.PredefinedFunctions.Enum2Str(salesLine.SalesType) More tricks like this can be found here: Visual Studio Debugger capabilities</description>
+    </item>
+    
+    <item>
+      <title>Get integer enum value</title>
+      <link>https://tsiarokhin.com/posts/integer-enum-value/</link>
+      <pubDate>Tue, 19 Jul 2022 19:56:49 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/integer-enum-value/</guid>
+      <description>Replace SalesStatus with your enum:
+select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &amp;#39;SalesStatus&amp;#39; </description>
+    </item>
+    
+    <item>
+      <title>Clear Dual-Write configuration after database restore</title>
+      <link>https://tsiarokhin.com/posts/clear-dual-write-config/</link>
+      <pubDate>Tue, 12 Jul 2022 19:36:24 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/clear-dual-write-config/</guid>
+      <description>USE [AxDB] DELETE FROM [dbo].[DUALWRITEPROJECTCONFIGURATION] DELETE FROM [dbo].[DUALWRITEPROJECTFIELDCONFIGURATION] DELETE FROM [dbo].[BUSINESSEVENTSDEFINITION] </description>
+    </item>
+    
+    <item>
+      <title>Add field lookup to extended form</title>
+      <link>https://tsiarokhin.com/posts/add-lookup-extended-form/</link>
+      <pubDate>Tue, 03 May 2022 20:17:50 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/add-lookup-extended-form/</guid>
+      <description>Create new event handler class:
+class EZDNRParametersFormEventHandler { [FormDataSourceEventHandler(formDataSourceStr(DNRParameters, RORParameters), FormDataSourceEventType::Initialized)] public static void RORParameters_OnInitialized(FormDataSource _sender, FormDataSourceEventArgs _e) { _sender.object(fieldNum(RORParameters, EZExcessHoursCategoryId)).registerOverrideMethod( methodStr(FormDataObject, lookup), methodStr(EZDNRParametersFormEventHandler, excessHoursCategoryIdLookup), new EZDNRParametersFormEventHandler()); } public void excessHoursCategoryIdLookup(FormStringControl _control) { QueryBuildDataSource queryBuildDataSource; QueryBuildRange queryBuildRange; SysTableLookup sysTableLookup = SysTableLookup::newParameters(tableNum(ProjCategory), _control); sysTableLookup.addLookupfield(fieldNum(ProjCategory, CategoryId), true); sysTableLookup.addLookupfield(fieldNum(ProjCategory, Name)); Query query = new Query(); query.addDataSource(tableNum(ProjCategory)) .addRange(fieldNum(ProjCategory, CategoryType)) .value(queryValue(ProjCategoryType::Hour)); sysTableLookup.parmQuery(query); sysTableLookup.performFormLookup(); } } </description>
+    </item>
+    
+    <item>
+      <title>Add jumpRef method to extended form</title>
+      <link>https://tsiarokhin.com/posts/add-jumpref-extended-form/</link>
+      <pubDate>Thu, 28 Apr 2022 20:27:59 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/add-jumpref-extended-form/</guid>
+      <description>class EZProjInvoiceProposalDetailFormEventHandler { [FormEventHandler(formStr(ProjInvoiceProposalDetail), FormEventType::Initialized)] public static void ProjInvoiceProposalDetail_OnInitialized(xFormRun _sender, FormEventArgs _e) { FormStringControl lineOfBusinessIdControl = _sender.design().controlName(formControlStr(ProjInvoiceProposalDetail, EZLineOfBusinessId)); lineOfBusinessIdControl.registerOverrideMethod( methodStr(FormStringControl, jumpRef), methodStr(EZProjInvoiceProposalDetailFormEventHandler, lineOfBusinessJumpRef), new EZProjInvoiceProposalDetailFormEventHandler()); } public void lineOfBusinessJumpRef(FormStringControl _control) { LineOfBusiness lineOfBusiness = LineOfBusiness::find(_control.valueStr()); Args args = new Args(); args.caller(_control.formRun()); args.record(lineOfBusiness); args.lookupRecord(lineOfBusiness); new MenuFunction(menuItemDisplayStr(LineOfBusiness), MenuItemType::Display).run(args); } } </description>
+    </item>
+    
+    <item>
+      <title>D365FO business events error</title>
       <link>https://tsiarokhin.com/posts/d365-business-events-error/</link>
       <pubDate>Sat, 08 Feb 2020 21:01:34 +0300</pubDate>
       

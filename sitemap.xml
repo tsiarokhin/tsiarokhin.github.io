@@ -2,49 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tsiarokhin.com/tags/ax/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/business-events/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
     <loc>https://tsiarokhin.com/categories/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
   </url><url>
-    <loc>https://tsiarokhin.com/tags/d365/</loc>
+    <loc>https://tsiarokhin.com/tags/d365fo/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/enum-value-debugger/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/categories/snippets/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/</loc>
+    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/integer-enum-value/</loc>
+    <lastmod>2022-07-19T19:56:49+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/sql/</loc>
+    <lastmod>2022-07-19T19:56:49+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/clear-dual-write-config/</loc>
+    <lastmod>2022-07-12T19:36:24+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/add-lookup-extended-form/</loc>
+    <lastmod>2022-05-03T20:17:50+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/add-jumpref-extended-form/</loc>
+    <lastmod>2022-04-28T20:27:59+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/.net/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/d365-business-events-error/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url><url>
-    <loc>https://tsiarokhin.com/tags/dotnet/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/error/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
     <loc>https://tsiarokhin.com/categories/fixes/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/posts/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/tags/azure/</loc>
-    <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/bot-framework/</loc>
-    <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/cortana/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/categories/workarounds/</loc>

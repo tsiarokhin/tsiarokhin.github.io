@@ -1,21 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ax on Maksim Tsiarokhin</title>
-    <link>https://tsiarokhin.com/tags/ax/</link>
-    <description>Recent content in ax on Maksim Tsiarokhin</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/ax/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>D365 business events error</title>
-      <link>https://tsiarokhin.com/posts/d365-business-events-error/</link>
-      <pubDate>Sat, 08 Feb 2020 21:01:34 +0300</pubDate>
-      
-      <guid>https://tsiarokhin.com/posts/d365-business-events-error/</guid>
-      <description>ProblemLink to headingStarting February 2020 a strange thing happened on our D365: all business events connected to Microsoft Flow suddenly stopped working. Under the errors tab in business events workspace, it shows this exception: The underlying connection was closed: An unexpected error occurred on a send.
-Doing some research hasn&amp;rsquo;t helped much - all I got is this exception message is somehow related to security protocols and TLS 1.</description>
-    </item>
-    
-  </channel>
-</rss>

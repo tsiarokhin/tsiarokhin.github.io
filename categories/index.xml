@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 20:07:24 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Snippets</title>
+      <link>https://tsiarokhin.com/categories/snippets/</link>
+      <pubDate>Mon, 07 Nov 2022 20:07:24 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/categories/snippets/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Fixes</title>
       <link>https://tsiarokhin.com/categories/fixes/</link>
