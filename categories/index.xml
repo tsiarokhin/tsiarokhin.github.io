@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Maksim Tsiarokhin</title>
-    <link>https://thiarokhin.com/categories/</link>
+    <link>https://tsiarokhin.com/categories/</link>
     <description>Recent content in Categories on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://thiarokhin.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fixes</title>
-      <link>https://thiarokhin.com/categories/fixes/</link>
+      <link>https://tsiarokhin.com/categories/fixes/</link>
       <pubDate>Sat, 08 Feb 2020 21:01:34 +0300</pubDate>
       
-      <guid>https://thiarokhin.com/categories/fixes/</guid>
+      <guid>https://tsiarokhin.com/categories/fixes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Workarounds</title>
-      <link>https://thiarokhin.com/categories/workarounds/</link>
+      <link>https://tsiarokhin.com/categories/workarounds/</link>
       <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
       
-      <guid>https://thiarokhin.com/categories/workarounds/</guid>
+      <guid>https://tsiarokhin.com/categories/workarounds/</guid>
       <description></description>
     </item>
     
