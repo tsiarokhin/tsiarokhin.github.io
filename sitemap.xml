@@ -1,90 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://termax.me/tags/ax/</loc>
+    <loc>https://thiarokhin.com/tags/ax/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/business-events/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/business-events/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/categories/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/categories/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/d365/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/d365/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/posts/d365-business-events-error/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/posts/d365-business-events-error/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/dotnet/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/dotnet/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/error/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/error/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/categories/fixes/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/categories/fixes/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/posts/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/posts/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/posts/adding-cortana-channel-using-aad-account/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/posts/adding-cortana-channel-using-aad-account/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/azure/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/azure/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/bot-framework/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/bot-framework/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/tags/cortana/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/tags/cortana/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/categories/workarounds/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/categories/workarounds/</loc>
     <lastmod>2018-12-24T18:42:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://termax.me/posts/hello-world/</loc>
+  </url><url>
+    <loc>https://thiarokhin.com/posts/hello-world/</loc>
     <lastmod>2018-12-24T00:23:13+03:00</lastmod>
   </url>
-  
 </urlset>
