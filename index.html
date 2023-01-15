@@ -202,11 +202,6 @@
   
 
   
-  
-  
-  <script src="https://tsiarokhin.com/commentBox.min_15977815076542055867.min.e3cfca715d9519644d6328aad980168515e1d5eff9113bc2ad67dc7d14249543.js" integrity="sha256-48/KcV2VGWRNYyiq2YAWhRXh1e/5ETvCrWfcfRQklUM="></script>
-  
-  
 
 
   
@@ -225,18 +220,6 @@
 
   
 
-  <script>
-let bodyStyle = getComputedStyle(document.body);
-commentBox('5694748627042304-proj', {textColor: bodyStyle.color, backgroundColor: bodyStyle.backgroundColor});
-
-document.addEventListener("themeChanged", function(){
- let commentBoxIframe = document.querySelector("#commentbox > iframe");
- let commentBoxUrl = new URL(commentBoxIframe.src);
- let bodyStyle = getComputedStyle(document.body);
- commentBoxUrl.searchParams.set("text_color", bodyStyle.color);
- commentBoxUrl.searchParams.set("background_color", bodyStyle.backgroundColor);
- commentBoxIframe.src = commentBoxUrl.toString();
- });
-</script></body>
+  </body>
 
 </html>
