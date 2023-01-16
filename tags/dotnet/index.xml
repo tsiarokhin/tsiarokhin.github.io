@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>.NET on Maksim Tsiarokhin</title>
-    <link>https://tsiarokhin.com/tags/.net/</link>
-    <description>Recent content in .NET on Maksim Tsiarokhin</description>
+    <title>dotNET on Maksim Tsiarokhin</title>
+    <link>https://tsiarokhin.com/tags/dotnet/</link>
+    <description>Recent content in dotNET on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Feb 2020 21:01:34 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D365FO business events error</title>
       <link>https://tsiarokhin.com/posts/d365-business-events-error/</link>
