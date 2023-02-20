@@ -2,31 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
     <loc>https://tsiarokhin.com/categories/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/tags/d365fo/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/categories/snippets/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/sql/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/</loc>
+    <lastmod>2023-02-11T20:41:02+01:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/enum-value-debugger/</loc>
     <lastmod>2022-11-07T20:07:24+01:00</lastmod>
   </url><url>
-    <loc>https://tsiarokhin.com/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/posts/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/categories/snippets/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/</loc>
-    <lastmod>2022-11-07T20:07:24+01:00</lastmod>
-  </url><url>
     <loc>https://tsiarokhin.com/posts/integer-enum-value/</loc>
-    <lastmod>2022-07-19T19:56:49+01:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/tags/sql/</loc>
     <lastmod>2022-07-19T19:56:49+01:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/clear-dual-write-config/</loc>

@@ -6,7 +6,17 @@
     <description>Recent content in SQL on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Jul 2022 19:56:49 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 20:41:02 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AxDB snapshot: how to create and restore</title>
+      <link>https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/</link>
+      <pubDate>Sat, 11 Feb 2023 20:41:02 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/</guid>
+      <description>When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
+Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots.</description>
+    </item>
+    
     <item>
       <title>Get integer enum value</title>
       <link>https://tsiarokhin.com/posts/integer-enum-value/</link>
