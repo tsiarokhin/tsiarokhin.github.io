@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lifehacks on Maksim Tsiarokhin</title>
+    <link>https://tsiarokhin.com/categories/lifehacks/</link>
+    <description>Recent content in Lifehacks on Maksim Tsiarokhin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Feb 2023 19:54:37 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/lifehacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You don&#39;t really need SysOperation controller</title>
+      <link>https://tsiarokhin.com/posts/you-dont-need-sysoperation-controller/</link>
+      <pubDate>Sat, 25 Feb 2023 19:54:37 +0100</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/you-dont-need-sysoperation-controller/</guid>
+      <description>We all know the SysOperation framework - the successor to the RunBaseBatch. Whenever you need to add a new periodic job to the system you have to create the following items:
+Service class, which contains the code to perform the processing; (Optional) Data contract class, which contains the parameters for the job; (Optional) UI builder class, which allows you to customize the look of the prompt dialog; Controller class, which configures how to run the job; Action menu item pointing to your controller to let users run the job and configure security.</description>
+    </item>
+    
+  </channel>
+</rss>
