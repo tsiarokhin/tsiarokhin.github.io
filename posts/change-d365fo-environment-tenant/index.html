@@ -12,18 +12,18 @@
 
 
 <meta name="author" content="Maksim Tsiarokhin">
-<meta name="description" content="Before application version 10.0.23, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and the recommended way now is to create a separate user for yourself and assign the System administrator role to it.
-Add new userLink to headingBut how can you add a new user if you can&rsquo;t access the environment?">
+<meta name="description" content="Update 26 March 2023Link to headingI&rsquo;ve recently found out that there is a simpler way to achieve this using d365fo.tools PowerShell module. Here is my article about it.
+Original articleLink to headingBefore platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore.">
 <meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to change D365FO environment tenant"/>
-<meta name="twitter:description" content="Before application version 10.0.23, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and the recommended way now is to create a separate user for yourself and assign the System administrator role to it.
-Add new userLink to headingBut how can you add a new user if you can&rsquo;t access the environment?"/>
+<meta name="twitter:description" content="Update 26 March 2023Link to headingI&rsquo;ve recently found out that there is a simpler way to achieve this using d365fo.tools PowerShell module. Here is my article about it.
+Original articleLink to headingBefore platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore."/>
 
 <meta property="og:title" content="How to change D365FO environment tenant" />
-<meta property="og:description" content="Before application version 10.0.23, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and the recommended way now is to create a separate user for yourself and assign the System administrator role to it.
-Add new userLink to headingBut how can you add a new user if you can&rsquo;t access the environment?" />
+<meta property="og:description" content="Update 26 March 2023Link to headingI&rsquo;ve recently found out that there is a simpler way to achieve this using d365fo.tools PowerShell module. Here is my article about it.
+Original articleLink to headingBefore platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tsiarokhin.com/posts/change-d365fo-environment-tenant/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-12T21:06:22+01:00" />
@@ -160,7 +160,7 @@ Add new userLink to headingBut how can you add a new user if you can&rsquo;t a
           
           <div class="categories">
   <i class="fa fa-folder" aria-hidden="true"></i>
-    <a href="https://tsiarokhin.com/categories/lifehacks/">Lifehacks</a></div>
+    <a href="https://tsiarokhin.com/categories/tips-and-tricks/">Tips and tricks</a></div>
 
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
@@ -173,7 +173,22 @@ Add new userLink to headingBut how can you add a new user if you can&rsquo;t a
 
       <div class="post-content">
         
-        <p>Before application version 10.0.23, every dev box came with a tool called AdminUserProvisioning which could be found at <code>K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe</code>. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and the recommended way now is to create a separate user for yourself and assign the System administrator role to it.</p>
+        <h1 id="_update-26-march-2023_">
+  <em>Update 26 March 2023</em>
+  <a class="heading-link" href="#_update-26-march-2023_">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>I&rsquo;ve recently found out that there is a simpler way to achieve this <a href="https://github.com/d365collaborative/d365fo.tools/wiki/How-To-Provision-Environment-Tier1">using d365fo.tools PowerShell module</a>. Here is <a href="https://tsiarokhin.com/posts/d365fo-tools/">my article about it</a>.</p>
+<h1 id="_original-article_">
+  <em>Original article</em>
+  <a class="heading-link" href="#_original-article_">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Before platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at <code>K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe</code>. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and replaced with a dll <code>Microsoft.Dynamics.AdminUserProvisioningLib.dll</code>, which does not provide a GUI.</p>
 <h2 id="add-new-user">
   Add new user
   <a class="heading-link" href="#add-new-user">
@@ -181,7 +196,7 @@ Add new userLink to headingBut how can you add a new user if you can&rsquo;t a
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>But how can you add a new user if you can&rsquo;t access the environment? Visual Studio comes to the rescue. When you right-click on any table in the AOT and click Open table browser, the browser window opens and you are automatically logged into the environment as an Admin. Simply remove everything that comes after .com in the URL and you are in.</p>
+<p>What to do if you need to create/import a user and assign the System administrator role to it but can&rsquo;t access the environment? Visual Studio comes to the rescue. When you right-click on any table in the AOT and click Open table browser, the browser window opens and you are automatically logged into the environment as an Admin. Simply remove everything that comes after .com in the URL and you are in.</p>
 <h2 id="change-environment-tenant">
   Change environment tenant
   <a class="heading-link" href="#change-environment-tenant">
@@ -202,7 +217,7 @@ The GUID can be found:</p>
 <li>By going to the <code>https://login.windows.net/&lt;CUSTOMER TENANT URL&gt;/.well-known/openid-configuration</code> and looking for the <code>token_endpoint</code> value.</li>
 </ul>
 <p>Restart the IIS and all the licenses should be valid again.</p>
-<p>Disclaimer: I only did this once and not sure if there are any negative implications, so do it at your own risk.</p>
+<p>Disclaimer: I only did this once and am not sure if there are any negative implications, so do it at your own risk.</p>
 
       </div>
 

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+  d365fo.tools - simplify environment management · Maksim Tsiarokhin
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Maksim Tsiarokhin">
+<meta name="description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful.">
+<meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="d365fo.tools - simplify environment management"/>
+<meta name="twitter:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful."/>
+
+<meta property="og:title" content="d365fo.tools - simplify environment management" />
+<meta property="og:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tsiarokhin.com/posts/d365fo-tools/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-26T16:57:27+02:00" />
+<meta property="article:modified_time" content="2023-03-26T16:57:27+02:00" />
+
+
+
+
+<link rel="canonical" href="https://tsiarokhin.com/posts/d365fo-tools/">
+
+
+<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/sharingbuttons.min.cda0dd549ddf01f6a1bffb6914c8377aeff530f1132dbca76f3cfae82b747dbe.css" integrity="sha256-zaDdVJ3fAfahv/tpFMg3eu/1MPETLbynbzz66Ct0fb4=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+
+<link rel="manifest" href="https://tsiarokhin.com/site.webmanifest">
+<link rel="mask-icon" href="https://tsiarokhin.com/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0">
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight.min.f72ac213fce8f30c46fca32fe61693175bee45e5012f8f1c2a2f262ca6c05079.css" integrity="sha256-9yrCE/zo8wxG/KMv5haTF1vuReUBL48cKi8mLKbAUHk=" crossorigin="anonymous" media="screen" />
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight-dark.min.b39032aacf8112692d7ab8886d1ad0994ef9722eacaa6d9055d4a2dd98cd938d.css" integrity="sha256-s5Ayqs&#43;BEmkteriIbRrQmU75ci6sqm2QVdSi3ZjNk40=" crossorigin="anonymous" media="screen" />
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tsiarokhin.com/">
+      Maksim Tsiarokhin
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://tsiarokhin.com/posts/d365fo-tools/">
+              d365fo.tools - simplify environment management
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-26T16:57:27&#43;02:00">
+                March 26, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://tsiarokhin.com/categories/tools/">Tools</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available <a href="https://github.com/d365collaborative/d365fo.tools">in this github repository</a>.</p>
+<h2 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Run PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="nb">Install-Module</span> <span class="n">-Name</span> <span class="n">d365fo</span><span class="p">.</span><span class="py">tools</span>
+</span></span></code></pre></div><h2 id="commands">
+  Commands
+  <a class="heading-link" href="#commands">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The examples bellow are only few commands I find most useful. <a href="https://github.com/d365collaborative/d365fo.tools/tree/master/docs">Here is a documentation for every available command</a>.</p>
+<h3 id="add-rules-to-windows-defender">
+  Add rules to Windows Defender
+  <a class="heading-link" href="#add-rules-to-windows-defender">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># This command excludes D365, SQL and X++ related processes</span>
+</span></span><span class="line"><span class="cl"><span class="c"># from antivirus scanning to enhance performance during development</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Add-D365WindowsDefenderRules</span>
+</span></span></code></pre></div><h3 id="start-stop-restart-services">
+  Start, stop, restart services
+  <a class="heading-link" href="#start-stop-restart-services">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="nb">Start-D365Environment</span> <span class="n">-All</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Stop-D365Environment</span> <span class="n">-All</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Restart-D365Environment</span> <span class="n">-All</span>
+</span></span></code></pre></div><h3 id="enabledisable-maintenance-mode">
+  Enable/disable maintenance mode
+  <a class="heading-link" href="#enabledisable-maintenance-mode">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="nb">Enable-D365MaintenanceMode</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Disable-D365MaintenanceMode</span>
+</span></span></code></pre></div><h3 id="install-license">
+  Install license
+  <a class="heading-link" href="#install-license">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="nb">Invoke-D365InstallLicense</span> <span class="s2">&#34;C:\Temp\license.txt&#34;</span> <span class="n">-ShowOriginalProgress</span>
+</span></span></code></pre></div><h3 id="publish-ssrs-report">
+  Publish SSRS report
+  <a class="heading-link" href="#publish-ssrs-report">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># The command also supports wildcards (*) in the report name</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Publish-D365SsrsReport</span> <span class="n">-Module</span> <span class="n">ApplicationSuite</span> <span class="n">-ReportName</span> <span class="n">TaxVatRegister</span><span class="p">.</span><span class="py">Report</span>
+</span></span></code></pre></div><h3 id="import-model">
+  Import model
+  <a class="heading-link" href="#import-model">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># -Replace parameter is optional</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-D365Model</span> <span class="n">-Path</span> <span class="n">C:</span><span class="p">\</span><span class="n">temp</span><span class="p">\</span><span class="n">CustomModel</span><span class="p">.</span><span class="py">axmodel</span> <span class="o">-Replace</span>
+</span></span></code></pre></div><h3 id="import-tier-2-produat-database-backup-into-dev-environment">
+  Import tier 2 (PROD/UAT) database backup into dev environment
+  <a class="heading-link" href="#import-tier-2-produat-database-backup-into-dev-environment">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># This needs to be run only once to install a SqlPackage tool needed to import bacpac</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-D365InstallSqlPackage</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Import the database backup into &#39;AxDB_UAT&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-D365Bacpac</span> <span class="n">-BacpacFile</span> <span class="s2">&#34;J:\MSSQL_BACKUP\AxDB_UAT.bacpac&#34;</span> <span class="n">-ImportModeTier1</span> <span class="n">-NewDatabaseName</span> <span class="n">AxDB_UAT</span> <span class="n">-ShowOriginalProgress</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Stop the environment, replace AxDB with newly imported AxDB_UAT, </span>
+</span></span><span class="line"><span class="cl"><span class="c"># run db sync and start the environment</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Stop-D365Environment</span> <span class="n">-All</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Switch-D365ActiveDatabase</span> <span class="n">-NewDatabaseName</span> <span class="s2">&#34;AxDB_UAT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-D365DBSync</span> <span class="n">-ShowOriginalProgress</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Start-D365Environment</span> <span class="n">-All</span>
+</span></span></code></pre></div><h3 id="manage-users">
+  Manage users
+  <a class="heading-link" href="#manage-users">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># Import</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-D365AadUser</span> <span class="n">-Users</span> <span class="n">test</span><span class="nv">@example</span><span class="p">.</span><span class="py">com</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-D365ExternalUser</span> <span class="n">-Id</span> <span class="s2">&#34;test&#34;</span> <span class="n">-Name</span> <span class="s2">&#34;Test User&#34;</span> <span class="n">-Email</span> <span class="s2">&#34;test@ext.com&#34;</span> <span class="n">-Company</span> <span class="s2">&#34;DEMF&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Set Admin user (NOTE: also provisions the environment to &#39;example.com&#39; AD tenant!)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-D365Admin</span> <span class="s2">&#34;test@example.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Enable all users (useful after DB restore)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Enable-D365User</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Enable specific user</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Enable-D365User</span> <span class="n">-Email</span> <span class="s2">&#34;test@example.com&#34;</span>
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2fd365fo-tools%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2ftsiarokhin.com%2fposts%2fd365fo-tools%2f" target="_blank" aria-label="Share on LinkedIn">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+	</div>Share</div>
+</a>
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2fd365fo-tools%2f" target="_blank" aria-label="Share on Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+	</div>Tweet</div>
+</a>
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ftsiarokhin.com%2fposts%2fd365fo-tools%2f" target="_blank" aria-label="Share on Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+	</div>Share</div>
+</a>
+<div class="commentbox"></div>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="https://tsiarokhin.com/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  <script data-goatcounter="https://tsiarokhin.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+let bodyStyle = getComputedStyle(document.body);
+commentBox('5694748627042304-proj', {textColor: bodyStyle.color, backgroundColor: bodyStyle.backgroundColor});
+
+document.addEventListener("themeChanged", function(){
+ let commentBoxIframe = document.querySelector("#commentbox > iframe");
+ let commentBoxUrl = new URL(commentBoxIframe.src);
+ let bodyStyle = getComputedStyle(document.body);
+ commentBoxUrl.searchParams.set("text_color", bodyStyle.color);
+ commentBoxUrl.searchParams.set("background_color", bodyStyle.backgroundColor);
+ commentBoxIframe.src = commentBoxUrl.toString();
+ });
+</script></body>
+
+</html>

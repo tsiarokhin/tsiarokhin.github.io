@@ -6,15 +6,26 @@
     <description>Recent content on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Mar 2023 21:06:22 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 16:57:27 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>d365fo.tools - simplify environment management</title>
+      <link>https://tsiarokhin.com/posts/d365fo-tools/</link>
+      <pubDate>Sun, 26 Mar 2023 16:57:27 +0200</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/d365fo-tools/</guid>
+      <description>d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering &amp;lsquo;yes&amp;rsquo; or &amp;lsquo;Y&amp;rsquo; to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful.</description>
+    </item>
+    
     <item>
       <title>How to change D365FO environment tenant</title>
       <link>https://tsiarokhin.com/posts/change-d365fo-environment-tenant/</link>
       <pubDate>Sun, 12 Mar 2023 21:06:22 +0100</pubDate>
       
       <guid>https://tsiarokhin.com/posts/change-d365fo-environment-tenant/</guid>
-      <description>Before application version 10.0.23, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and the recommended way now is to create a separate user for yourself and assign the System administrator role to it.
-Add new userLink to headingBut how can you add a new user if you can&amp;rsquo;t access the environment?</description>
+      <description>Update 26 March 2023Link to headingI&amp;rsquo;ve recently found out that there is a simpler way to achieve this using d365fo.tools PowerShell module. Here is my article about it.
+Original articleLink to headingBefore platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore.</description>
     </item>
     
     <item>
