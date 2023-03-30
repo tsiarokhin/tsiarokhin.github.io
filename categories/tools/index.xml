@@ -6,7 +6,17 @@
     <description>Recent content in Tools on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Mar 2023 16:57:27 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2023 19:02:17 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TRUDUtils - add-ins for faster D365FO development</title>
+      <link>https://tsiarokhin.com/posts/trudutils-vs-addins/</link>
+      <pubDate>Wed, 29 Mar 2023 19:02:17 +0200</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/trudutils-vs-addins/</guid>
+      <description>Continuing the series about useful tools for D365FO developers I would like to present a set of Visual Studio add-ins speed up common development tasks - TRUDUtils, made by Denis Trunin. In this post I will provide installation guide and my favorite features.
+InstallationLink to headingClose Visual Studio and then download and run the following PowerShell script. It will download the latest version of the add-ins from GitHub into C:\Temp\TRUDUtils and run the installer.</description>
+    </item>
+    
     <item>
       <title>d365fo.tools - simplify environment management</title>
       <link>https://tsiarokhin.com/posts/d365fo-tools/</link>
