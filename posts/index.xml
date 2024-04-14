@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Maksim Tsiarokhin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Mar 2023 19:02:17 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Apr 2024 19:45:09 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix electronic reporting in D365FO dev boxes</title>
+      <link>https://tsiarokhin.com/posts/fix-er-d365fo/</link>
+      <pubDate>Sun, 14 Apr 2024 19:45:09 +0200</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/fix-er-d365fo/</guid>
+      <description>Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
+Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal.</description>
+    </item>
+    
     <item>
       <title>TRUDUtils - add-ins for faster D365FO development</title>
       <link>https://tsiarokhin.com/posts/trudutils-vs-addins/</link>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ER on Maksim Tsiarokhin</title>
+    <link>https://tsiarokhin.com/tags/er/</link>
+    <description>Recent content in ER on Maksim Tsiarokhin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Apr 2024 19:45:09 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/er/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix electronic reporting in D365FO dev boxes</title>
+      <link>https://tsiarokhin.com/posts/fix-er-d365fo/</link>
+      <pubDate>Sun, 14 Apr 2024 19:45:09 +0200</pubDate>
+      
+      <guid>https://tsiarokhin.com/posts/fix-er-d365fo/</guid>
+      <description>Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
+Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal.</description>
+    </item>
+    
+  </channel>
+</rss>

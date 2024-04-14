@@ -3,19 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tsiarokhin.com/categories/</loc>
-    <lastmod>2023-03-29T19:02:17+02:00</lastmod>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/tags/d365fo/</loc>
-    <lastmod>2023-03-29T19:02:17+02:00</lastmod>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/tags/er/</loc>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/posts/fix-er-d365fo/</loc>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
+  </url><url>
+    <loc>https://tsiarokhin.com/categories/fixes/</loc>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/</loc>
-    <lastmod>2023-03-29T19:02:17+02:00</lastmod>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/</loc>
-    <lastmod>2023-03-29T19:02:17+02:00</lastmod>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/tags/</loc>
-    <lastmod>2023-03-29T19:02:17+02:00</lastmod>
+    <lastmod>2024-04-14T19:45:09+02:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/categories/tools/</loc>
     <lastmod>2023-03-29T19:02:17+02:00</lastmod>
@@ -66,9 +75,6 @@
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/tags/dotnet/</loc>
-    <lastmod>2020-02-08T21:01:34+03:00</lastmod>
-  </url><url>
-    <loc>https://tsiarokhin.com/categories/fixes/</loc>
     <lastmod>2020-02-08T21:01:34+03:00</lastmod>
   </url><url>
     <loc>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</loc>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+  Fix electronic reporting in D365FO dev boxes · Maksim Tsiarokhin
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Maksim Tsiarokhin">
+<meta name="description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
+Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal.">
+<meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fix electronic reporting in D365FO dev boxes"/>
+<meta name="twitter:description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
+Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal."/>
+
+<meta property="og:title" content="Fix electronic reporting in D365FO dev boxes" />
+<meta property="og:description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
+Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tsiarokhin.com/posts/fix-er-d365fo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-14T19:45:09+02:00" />
+<meta property="article:modified_time" content="2024-04-14T19:45:09+02:00" />
+
+
+
+
+<link rel="canonical" href="https://tsiarokhin.com/posts/fix-er-d365fo/">
+
+
+<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/sharingbuttons.min.cda0dd549ddf01f6a1bffb6914c8377aeff530f1132dbca76f3cfae82b747dbe.css" integrity="sha256-zaDdVJ3fAfahv/tpFMg3eu/1MPETLbynbzz66Ct0fb4=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://tsiarokhin.com/img/apple-touch-icon.png">
+
+<link rel="manifest" href="https://tsiarokhin.com/site.webmanifest">
+<link rel="mask-icon" href="https://tsiarokhin.com/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0">
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight.min.f72ac213fce8f30c46fca32fe61693175bee45e5012f8f1c2a2f262ca6c05079.css" integrity="sha256-9yrCE/zo8wxG/KMv5haTF1vuReUBL48cKi8mLKbAUHk=" crossorigin="anonymous" media="screen" />
+  
+  <link rel="stylesheet" href="https://tsiarokhin.com/scss/highlight-dark.min.b39032aacf8112692d7ab8886d1ad0994ef9722eacaa6d9055d4a2dd98cd938d.css" integrity="sha256-s5Ayqs&#43;BEmkteriIbRrQmU75ci6sqm2QVdSi3ZjNk40=" crossorigin="anonymous" media="screen" />
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tsiarokhin.com/">
+      Maksim Tsiarokhin
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://tsiarokhin.com/posts/fix-er-d365fo/">
+              Fix electronic reporting in D365FO dev boxes
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-04-14T19:45:09&#43;02:00">
+                April 14, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="https://tsiarokhin.com/categories/fixes/">Fixes</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="https://tsiarokhin.com/tags/er/">ER</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Starting November 15, 2023, <a href="https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/secure-developer-vm#external-integrations">Microsoft stopped installing S2S certificates to newly deployed cloud development environments</a>. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing  Electronic reporting (ER) configurations:</p>
+<p><img src="ER-error.png" alt="The authentication process was not successful. Please contact your system administrator"></p>
+<p>Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal. If you want to continue using online repositories from Microsoft or RCS (which is by the way deprecated as of 10.0.39), I&rsquo;ve found the solution below. Beware that it generates and adds the VM certificate to your tenant the same way it was done before November 15, which Microsoft now advises against.</p>
+<ol>
+<li>
+<p><a href="https://tsiarokhin.com/posts/d365fo-tools/">Download and install d365fo.tools</a>. It adds <a href="https://github.com/d365collaborative/d365fo.tools/blob/development/docs/New-D365EntraIntegration.md">a command</a> to generate and install the certificate used for Entra ID integration</p>
+</li>
+<li>
+<p>Install MSOnline PowerShell package by running the following command:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="nb">Install-Module</span> <span class="n">-Name</span> <span class="n">MSOnline</span>
+</span></span></code></pre></div><ol start="3">
+<li>Run the following PowerShell commands (you must have privileges to administer tenant)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="cm">&lt;# Microsoft Dynamics ERP Application id #&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$appid</span> <span class="p">=</span> <span class="s2">&#34;00000015-0000-0000-c000-000000000000&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">&lt;# This will generate CHEAuth.cer file on your desktop, install it to the certificate store and update D365FO web.config with the thumbprint of the certificate #&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-D365EntraIntegration</span> <span class="n">-ClientId</span> <span class="nv">$appid</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">&lt;# Replace &lt;Path-to-Certificate&gt; to with the full path to a CHEAuth.cer file #&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$cer</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">Security</span><span class="p">.</span><span class="py">Cryptography</span><span class="p">.</span><span class="py">X509Certificates</span><span class="p">.</span><span class="py">X509Certificate</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$cer</span><span class="p">.</span><span class="py">Import</span><span class="p">(</span><span class="s2">&#34;&lt;Path-to-Certificate&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$binCert</span> <span class="p">=</span> <span class="nv">$cer</span><span class="p">.</span><span class="py">GetRawCertData</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$credValue</span> <span class="p">=</span> <span class="p">[</span><span class="no">System.Convert</span><span class="p">]::</span><span class="n">ToBase64String</span><span class="p">(</span><span class="nv">$binCert</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">&lt;# Add the certificate to the Microsoft Dynamics ERP application #&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Connect-MsolService</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-MsolServicePrincipalCredential</span> <span class="n">-AppPrincipalId</span> <span class="nv">$appid</span> <span class="n">-Type</span> <span class="n">asymmetric</span> <span class="n">-Value</span> <span class="nv">$credValue</span> <span class="n">-Usage</span> <span class="n">verify</span>
+</span></span></code></pre></div><ol start="4">
+<li>Restart IIS using the <code>iisreset</code> command.</li>
+</ol>
+<p>Now connecting to online ER repositories and importing users from Entra ID should work.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2ffix-er-d365fo%2f&amp;title=&amp;summary=&amp;source=https%3a%2f%2ftsiarokhin.com%2fposts%2ffix-er-d365fo%2f" target="_blank" aria-label="Share on LinkedIn">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+	</div>Share</div>
+</a>
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=&amp;url=https%3a%2f%2ftsiarokhin.com%2fposts%2ffix-er-d365fo%2f" target="_blank" aria-label="Share on Twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+	</div>Tweet</div>
+</a>
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ftsiarokhin.com%2fposts%2ffix-er-d365fo%2f" target="_blank" aria-label="Share on Facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+	</div>Share</div>
+</a>
+<div class="commentbox"></div>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="https://tsiarokhin.com/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  <script data-goatcounter="https://tsiarokhin.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+let bodyStyle = getComputedStyle(document.body);
+commentBox('5694748627042304-proj', {textColor: bodyStyle.color, backgroundColor: bodyStyle.backgroundColor});
+
+document.addEventListener("themeChanged", function(){
+ let commentBoxIframe = document.querySelector("#commentbox > iframe");
+ let commentBoxUrl = new URL(commentBoxIframe.src);
+ let bodyStyle = getComputedStyle(document.body);
+ commentBoxUrl.searchParams.set("text_color", bodyStyle.color);
+ commentBoxUrl.searchParams.set("background_color", bodyStyle.backgroundColor);
+ commentBoxIframe.src = commentBoxUrl.toString();
+ });
+</script></body>
+
+</html>
