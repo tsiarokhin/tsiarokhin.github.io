@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
+
+<head>
+  <title>
   Fix electronic reporting in D365FO dev boxes · Maksim Tsiarokhin
 </title>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 
@@ -12,22 +13,43 @@
 
 
 <meta name="author" content="Maksim Tsiarokhin">
-<meta name="description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
-Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal.">
+<meta name="description" content="
+  Update 15 February 2026
+  
+    
+    Link to heading
+  
+
+Microsoft dropped ER Dataverse repository support completely, use File System repository with a local download from LCS as described here
+
+  Original article
+  
+    
+    Link to heading
+  
+
+Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing  Electronic reporting (ER) configurations:">
 <meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Fix electronic reporting in D365FO dev boxes"/>
-<meta name="twitter:description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
-Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal."/>
 
-<meta property="og:title" content="Fix electronic reporting in D365FO dev boxes" />
-<meta property="og:description" content="Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
-Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://tsiarokhin.com/posts/fix-er-d365fo/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-14T19:45:09+02:00" />
-<meta property="article:modified_time" content="2024-04-14T19:45:09+02:00" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fix electronic reporting in D365FO dev boxes">
+  <meta name="twitter:description" content="Update 15 February 2026Link to headingMicrosoft dropped ER Dataverse repository support completely, use File System repository with a local download from LCS as described here
+Original articleLink to headingStarting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:">
+
+<meta property="og:url" content="https://tsiarokhin.com/posts/fix-er-d365fo/">
+  <meta property="og:site_name" content="Maksim Tsiarokhin">
+  <meta property="og:title" content="Fix electronic reporting in D365FO dev boxes">
+  <meta property="og:description" content="Update 15 February 2026Link to headingMicrosoft dropped ER Dataverse repository support completely, use File System repository with a local download from LCS as described here
+Original articleLink to headingStarting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-04-14T19:45:09+02:00">
+    <meta property="article:modified_time" content="2024-04-14T19:45:09+02:00">
+    <meta property="article:tag" content="D365FO">
+    <meta property="article:tag" content="ER">
 
 
 
@@ -35,12 +57,14 @@ Instead, it refers to an article on how to set up a File system repository and i
 <link rel="canonical" href="https://tsiarokhin.com/posts/fix-er-d365fo/">
 
 
-<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css" integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -50,7 +74,7 @@ Instead, it refers to an article on how to set up a File system repository and i
   
     
     
-    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -65,6 +89,7 @@ Instead, it refers to an article on how to set up a File system repository and i
 
 
 
+<link rel="icon" type="image/svg+xml" href="https://tsiarokhin.com/images/favicon.svg" sizes="any">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
 
@@ -77,7 +102,6 @@ Instead, it refers to an article on how to set up a File system repository and i
 
 
 
-<meta name="generator" content="Hugo 0.109.0">
 
 
 
@@ -90,7 +114,7 @@ Instead, it refers to an article on how to set up a File system repository and i
 
 
 
-  </head>
+</head>
 
 
 
@@ -101,7 +125,7 @@ Instead, it refers to an article on how to set up a File system repository and i
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
@@ -109,19 +133,21 @@ Instead, it refers to an article on how to set up a File system repository and i
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
+    
     <a class="navigation-title" href="https://tsiarokhin.com/">
       Maksim Tsiarokhin
     </a>
     
+    
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
         
           
             <li class="navigation-item">
-              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+              <a class="navigation-link " href="https://tsiarokhin.com/posts/">Posts</a>
             </li>
           
         
@@ -147,23 +173,23 @@ Instead, it refers to an article on how to set up a File system repository and i
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
               <time datetime="2024-04-14T19:45:09&#43;02:00">
                 April 14, 2024
               </time>
             </span>
             <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
               2-minute read
             </span>
           </div>
           
           <div class="categories">
-  <i class="fa fa-folder" aria-hidden="true"></i>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
     <a href="https://tsiarokhin.com/categories/fixes/">Fixes</a></div>
 
           <div class="tags">
-  <i class="fa fa-tag" aria-hidden="true"></i>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
       <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
     </span>
@@ -177,12 +203,27 @@ Instead, it refers to an article on how to set up a File system repository and i
 
       <div class="post-content">
         
-        <p>Starting November 15, 2023, <a href="https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/secure-developer-vm#external-integrations">Microsoft stopped installing S2S certificates to newly deployed cloud development environments</a>. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing  Electronic reporting (ER) configurations:</p>
+        <h1 id="update-15-february-2026">
+  <em>Update 15 February 2026</em>
+  <a class="heading-link" href="#update-15-february-2026">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Microsoft dropped ER Dataverse repository support completely, use File System repository with a local download from LCS as described <a href="https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/analytics/electronic-reporting-import-ger-configurations"  class="external-link" target="_blank" rel="noopener">here</a></p>
+<h1 id="original-article">
+  <em>Original article</em>
+  <a class="heading-link" href="#original-article">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Starting November 15, 2023, <a href="https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/secure-developer-vm#external-integrations"  class="external-link" target="_blank" rel="noopener">Microsoft stopped installing S2S certificates to newly deployed cloud development environments</a>. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing  Electronic reporting (ER) configurations:</p>
 <p><img src="ER-error.png" alt="The authentication process was not successful. Please contact your system administrator"></p>
 <p>Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal. If you want to continue using online repositories from Microsoft or RCS (which is by the way deprecated as of 10.0.39), I&rsquo;ve found the solution below. Beware that it generates and adds the VM certificate to your tenant the same way it was done before November 15, which Microsoft now advises against.</p>
 <ol>
 <li>
-<p><a href="https://tsiarokhin.com/posts/d365fo-tools/">Download and install d365fo.tools</a>. It adds <a href="https://github.com/d365collaborative/d365fo.tools/blob/development/docs/New-D365EntraIntegration.md">a command</a> to generate and install the certificate used for Entra ID integration</p>
+<p><a href="https://tsiarokhin.com/posts/d365fo-tools/" >Download and install d365fo.tools</a>. It adds <a href="https://github.com/d365collaborative/d365fo.tools/blob/development/docs/New-D365EntraIntegration.md"  class="external-link" target="_blank" rel="noopener">a command</a> to generate and install the certificate used for Entra ID integration</p>
 </li>
 <li>
 <p>Install MSOnline PowerShell package by running the following command:</p>
@@ -240,6 +281,9 @@ Instead, it refers to an article on how to set up a File system repository and i
 <div class="commentbox"></div>
         
         
+        
+        
+        
       </footer>
     </article>
 
@@ -285,6 +329,24 @@ Instead, it refers to an article on how to set up a File system repository and i
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
 let bodyStyle = getComputedStyle(document.body);
@@ -299,5 +361,4 @@ document.addEventListener("themeChanged", function(){
  commentBoxIframe.src = commentBoxUrl.toString();
  });
 </script></body>
-
 </html>

@@ -4,19 +4,16 @@
     <title>Workarounds on Maksim Tsiarokhin</title>
     <link>https://tsiarokhin.com/categories/workarounds/</link>
     <description>Recent content in Workarounds on Maksim Tsiarokhin</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Dec 2018 18:42:00 +0300</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/workarounds/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Dec 2018 18:42:00 +0300</lastBuildDate>
+    <atom:link href="https://tsiarokhin.com/categories/workarounds/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding Cortana channel using Azure AD account</title>
       <link>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</link>
       <pubDate>Mon, 24 Dec 2018 18:42:00 +0300</pubDate>
-      
       <guid>https://tsiarokhin.com/posts/adding-cortana-channel-using-aad-account/</guid>
-      <description>When you try to create Cortana channel using Microsoft Bot Framework you may get the error saying &amp;ldquo;Cortana channel cannot be added&amp;rdquo;:
-This happens because Cortana Skills can&amp;rsquo;t be created using Azure Active Directory accounts (source).
-WorkaroundLink to headingYou must register a regular MSA account (like @outlook.com) or use your existing one. Using your AAD account, open Azure portal, navigate to Bot Channels Registration -&amp;gt; Access control (IAM). Click Add role assignment and assign owner role to your MSA account:</description>
+      <description>&lt;p&gt;When you try to create Cortana channel using &lt;a href=&#34;https://dev.botframework.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Microsoft Bot Framework&lt;/a&gt; you may get the error saying &amp;ldquo;Cortana channel cannot be added&amp;rdquo;:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;Cortana channel cannot be added. Currently, the Cortana channel is only available to Bot Framework accounts associated with a Microsoft account. To connect a bot to Cortana, please create a Bot Framework account using your Microsoft account. Learn more.&#34;&gt;&#xA;This happens because Cortana Skills can&amp;rsquo;t be created using Azure Active Directory accounts (&lt;a href=&#34;https://github.com/Microsoft/BotBuilder/issues/3826&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;source&lt;/a&gt;).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

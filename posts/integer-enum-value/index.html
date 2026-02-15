@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
+
+<head>
+  <title>
   Get integer enum value · Maksim Tsiarokhin
 </title>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 
@@ -13,21 +14,31 @@
 
 <meta name="author" content="Maksim Tsiarokhin">
 <meta name="description" content="Replace SalesStatus with your enum:
-select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &#39;SalesStatus&#39; ">
+select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1
+	join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID
+	where t1.NAME = &#39;SalesStatus&#39;
+">
 <meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Get integer enum value"/>
-<meta name="twitter:description" content="Replace SalesStatus with your enum:
-select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &#39;SalesStatus&#39; "/>
 
-<meta property="og:title" content="Get integer enum value" />
-<meta property="og:description" content="Replace SalesStatus with your enum:
-select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &#39;SalesStatus&#39; " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://tsiarokhin.com/posts/integer-enum-value/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-07-19T19:56:49+01:00" />
-<meta property="article:modified_time" content="2022-07-19T19:56:49+01:00" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Get integer enum value">
+  <meta name="twitter:description" content="Replace SalesStatus with your enum:
+select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &#39;SalesStatus&#39;">
+
+<meta property="og:url" content="https://tsiarokhin.com/posts/integer-enum-value/">
+  <meta property="og:site_name" content="Maksim Tsiarokhin">
+  <meta property="og:title" content="Get integer enum value">
+  <meta property="og:description" content="Replace SalesStatus with your enum:
+select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE t1 join ENUMVALUETABLE t2 on t1.ID = t2.ENUMID where t1.NAME = &#39;SalesStatus&#39;">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-19T19:56:49+01:00">
+    <meta property="article:modified_time" content="2022-07-19T19:56:49+01:00">
+    <meta property="article:tag" content="D365FO">
+    <meta property="article:tag" content="SQL">
 
 
 
@@ -35,12 +46,14 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 <link rel="canonical" href="https://tsiarokhin.com/posts/integer-enum-value/">
 
 
-<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css" integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -50,7 +63,7 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
   
     
     
-    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -65,6 +78,7 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 
 
 
+<link rel="icon" type="image/svg+xml" href="https://tsiarokhin.com/images/favicon.svg" sizes="any">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
 
@@ -77,7 +91,6 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 
 
 
-<meta name="generator" content="Hugo 0.109.0">
 
 
 
@@ -90,7 +103,7 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 
 
 
-  </head>
+</head>
 
 
 
@@ -101,7 +114,7 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
@@ -109,19 +122,21 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
+    
     <a class="navigation-title" href="https://tsiarokhin.com/">
       Maksim Tsiarokhin
     </a>
     
+    
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
         
           
             <li class="navigation-item">
-              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+              <a class="navigation-link " href="https://tsiarokhin.com/posts/">Posts</a>
             </li>
           
         
@@ -147,23 +162,23 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
               <time datetime="2022-07-19T19:56:49&#43;01:00">
                 July 19, 2022
               </time>
             </span>
             <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
               One-minute read
             </span>
           </div>
           
           <div class="categories">
-  <i class="fa fa-folder" aria-hidden="true"></i>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
     <a href="https://tsiarokhin.com/categories/snippets/">Snippets</a></div>
 
           <div class="tags">
-  <i class="fa fa-tag" aria-hidden="true"></i>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
       <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
     </span>
@@ -208,6 +223,9 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 	</div>Share</div>
 </a>
 <div class="commentbox"></div>
+        
+        
+        
         
         
       </footer>
@@ -255,6 +273,24 @@ select t1.NAME, t2.ENUMID, t2.ENUMVALUE, t2.NAME EnumValueName from ENUMIDTABLE 
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
 let bodyStyle = getComputedStyle(document.body);
@@ -269,5 +305,4 @@ document.addEventListener("themeChanged", function(){
  commentBoxIframe.src = commentBoxUrl.toString();
  });
 </script></body>
-
 </html>

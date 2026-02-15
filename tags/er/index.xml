@@ -4,18 +4,16 @@
     <title>ER on Maksim Tsiarokhin</title>
     <link>https://tsiarokhin.com/tags/er/</link>
     <description>Recent content in ER on Maksim Tsiarokhin</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 Apr 2024 19:45:09 +0200</lastBuildDate><atom:link href="https://tsiarokhin.com/tags/er/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Apr 2024 19:45:09 +0200</lastBuildDate>
+    <atom:link href="https://tsiarokhin.com/tags/er/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix electronic reporting in D365FO dev boxes</title>
       <link>https://tsiarokhin.com/posts/fix-er-d365fo/</link>
       <pubDate>Sun, 14 Apr 2024 19:45:09 +0200</pubDate>
-      
       <guid>https://tsiarokhin.com/posts/fix-er-d365fo/</guid>
-      <description>Starting November 15, 2023, Microsoft stopped installing S2S certificates to newly deployed cloud development environments. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing Electronic reporting (ER) configurations:
-Instead, it refers to an article on how to set up a File system repository and import configurations from local files, which is not ideal.</description>
+      <description>&lt;h1 id=&#34;update-15-february-2026&#34;&gt;&#xD;&#xA;  &lt;em&gt;Update 15 February 2026&lt;/em&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#update-15-february-2026&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Microsoft dropped ER Dataverse repository support completely, use File System repository with a local download from LCS as described &lt;a href=&#34;https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/analytics/electronic-reporting-import-ger-configurations&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;original-article&#34;&gt;&#xD;&#xA;  &lt;em&gt;Original article&lt;/em&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#original-article&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Starting November 15, 2023, &lt;a href=&#34;https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/secure-developer-vm#external-integrations&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Microsoft stopped installing S2S certificates to newly deployed cloud development environments&lt;/a&gt;. As a result, all functions that required integration with Microsoft Entra (Azure AD) no longer work out of the box. The link above contains a solution to bring back the ability to import users, but does not solve the error of importing  Electronic reporting (ER) configurations:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
+
+<head>
+  <title>
   d365fo.tools - simplify environment management · Maksim Tsiarokhin
 </title>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 
@@ -13,24 +14,45 @@
 
 <meta name="author" content="Maksim Tsiarokhin">
 <meta name="description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
-InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
-Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful.">
+
+  Installation
+  
+    
+    Link to heading
+  
+
+Run PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
+Install-Module -Name d365fo.tools
+
+  Commands
+  
+    
+    Link to heading
+  
+
+The examples bellow are only few commands I find most useful. Here is a documentation for every available command.">
 <meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="d365fo.tools - simplify environment management"/>
-<meta name="twitter:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
-InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
-Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful."/>
 
-<meta property="og:title" content="d365fo.tools - simplify environment management" />
-<meta property="og:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
-InstallationLink to headingRun PowerShell as administrator and execute the following, answering &lsquo;yes&rsquo; or &lsquo;Y&rsquo; to all the prompts:
-Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://tsiarokhin.com/posts/d365fo-tools/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-03-26T16:57:27+02:00" />
-<meta property="article:modified_time" content="2023-03-26T16:57:27+02:00" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="d365fo.tools - simplify environment management">
+  <meta name="twitter:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering ‘yes’ or ‘Y’ to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful. Here is a documentation for every available command.">
+
+<meta property="og:url" content="https://tsiarokhin.com/posts/d365fo-tools/">
+  <meta property="og:site_name" content="Maksim Tsiarokhin">
+  <meta property="og:title" content="d365fo.tools - simplify environment management">
+  <meta property="og:description" content="d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available in this github repository.
+InstallationLink to headingRun PowerShell as administrator and execute the following, answering ‘yes’ or ‘Y’ to all the prompts:
+Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow are only few commands I find most useful. Here is a documentation for every available command.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-26T16:57:27+02:00">
+    <meta property="article:modified_time" content="2023-03-26T16:57:27+02:00">
+    <meta property="article:tag" content="D365FO">
 
 
 
@@ -38,12 +60,14 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 <link rel="canonical" href="https://tsiarokhin.com/posts/d365fo-tools/">
 
 
-<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css" integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -53,7 +77,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
   
     
     
-    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -68,6 +92,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 
 
 
+<link rel="icon" type="image/svg+xml" href="https://tsiarokhin.com/images/favicon.svg" sizes="any">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
 
@@ -80,7 +105,6 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 
 
 
-<meta name="generator" content="Hugo 0.109.0">
 
 
 
@@ -93,7 +117,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 
 
 
-  </head>
+</head>
 
 
 
@@ -104,7 +128,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
@@ -112,19 +136,21 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
+    
     <a class="navigation-title" href="https://tsiarokhin.com/">
       Maksim Tsiarokhin
     </a>
     
+    
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
         
           
             <li class="navigation-item">
-              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+              <a class="navigation-link " href="https://tsiarokhin.com/posts/">Posts</a>
             </li>
           
         
@@ -150,23 +176,23 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
               <time datetime="2023-03-26T16:57:27&#43;02:00">
                 March 26, 2023
               </time>
             </span>
             <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
               2-minute read
             </span>
           </div>
           
           <div class="categories">
-  <i class="fa fa-folder" aria-hidden="true"></i>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
     <a href="https://tsiarokhin.com/categories/tools/">Tools</a></div>
 
           <div class="tags">
-  <i class="fa fa-tag" aria-hidden="true"></i>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
       <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
     </span></div>
@@ -176,11 +202,11 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 
       <div class="post-content">
         
-        <p>d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available <a href="https://github.com/d365collaborative/d365fo.tools">in this github repository</a>.</p>
+        <p>d365fo.tools is a PowerShell module that has a lot of useful commands to manage D365FO installation on your development environment. It simplifies and automates tasks that would otherwise require a lot of time and work. Full module description is available <a href="https://github.com/d365collaborative/d365fo.tools"  class="external-link" target="_blank" rel="noopener">in this github repository</a>.</p>
 <h2 id="installation">
   Installation
   <a class="heading-link" href="#installation">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
@@ -189,25 +215,28 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h2 id="commands">
   Commands
   <a class="heading-link" href="#commands">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The examples bellow are only few commands I find most useful. <a href="https://github.com/d365collaborative/d365fo.tools/tree/master/docs">Here is a documentation for every available command</a>.</p>
-<h3 id="add-rules-to-windows-defender">
-  Add rules to Windows Defender
-  <a class="heading-link" href="#add-rules-to-windows-defender">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+<p>The examples bellow are only few commands I find most useful. <a href="https://github.com/d365collaborative/d365fo.tools/tree/master/docs"  class="external-link" target="_blank" rel="noopener">Here is a documentation for every available command</a>.</p>
+<h3 id="improve-environment-performance">
+  Improve environment performance
+  <a class="heading-link" href="#improve-environment-performance">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl"><span class="c"># This command excludes D365, SQL and X++ related processes</span>
 </span></span><span class="line"><span class="cl"><span class="c"># from antivirus scanning to enhance performance during development</span>
 </span></span><span class="line"><span class="cl"><span class="nb">Add-D365WindowsDefenderRules</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Configures IIS to preload the AOSService application, improving startup time after X++ compile.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Enable-D365IISPreload</span>
 </span></span></code></pre></div><h3 id="start-stop-restart-services">
   Start, stop, restart services
   <a class="heading-link" href="#start-stop-restart-services">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -217,7 +246,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h3 id="enabledisable-maintenance-mode">
   Enable/disable maintenance mode
   <a class="heading-link" href="#enabledisable-maintenance-mode">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -226,7 +255,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h3 id="install-license">
   Install license
   <a class="heading-link" href="#install-license">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -234,7 +263,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h3 id="publish-ssrs-report">
   Publish SSRS report
   <a class="heading-link" href="#publish-ssrs-report">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -243,7 +272,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h3 id="import-model">
   Import model
   <a class="heading-link" href="#import-model">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -252,7 +281,7 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span></code></pre></div><h3 id="import-tier-2-produat-database-backup-into-dev-environment">
   Import tier 2 (PROD/UAT) database backup into dev environment
   <a class="heading-link" href="#import-tier-2-produat-database-backup-into-dev-environment">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -265,13 +294,13 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 </span></span><span class="line"><span class="cl"><span class="c"># Stop the environment, replace AxDB with newly imported AxDB_UAT, </span>
 </span></span><span class="line"><span class="cl"><span class="c"># run db sync and start the environment</span>
 </span></span><span class="line"><span class="cl"><span class="nb">Stop-D365Environment</span> <span class="n">-All</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Switch-D365ActiveDatabase</span> <span class="n">-NewDatabaseName</span> <span class="s2">&#34;AxDB_UAT&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Invoke-D365DBSync</span> <span class="n">-ShowOriginalProgress</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Switch-D365ActiveDatabase</span> <span class="n">-NewDatabaseName</span> <span class="s2">&#34;AxDB_UAT&#34;</span> <span class="n">-DestinationSuffix</span> <span class="s2">&#34;_oldYYYYMMDD&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-D365DBSync</span> <span class="n">-ShowOriginalProgress</span> <span class="n">-Verbose</span>
 </span></span><span class="line"><span class="cl"><span class="nb">Start-D365Environment</span> <span class="n">-All</span>
 </span></span></code></pre></div><h3 id="manage-users">
   Manage users
   <a class="heading-link" href="#manage-users">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
@@ -314,6 +343,9 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 	</div>Share</div>
 </a>
 <div class="commentbox"></div>
+        
+        
+        
         
         
       </footer>
@@ -361,6 +393,24 @@ Install-Module -Name d365fo.tools CommandsLink to headingThe examples bellow a
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
 let bodyStyle = getComputedStyle(document.body);
@@ -375,5 +425,4 @@ document.addEventListener("themeChanged", function(){
  commentBoxIframe.src = commentBoxUrl.toString();
  });
 </script></body>
-
 </html>

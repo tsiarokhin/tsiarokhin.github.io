@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tips and tricks on Maksim Tsiarokhin</title>
+    <title>Tips and Tricks on Maksim Tsiarokhin</title>
     <link>https://tsiarokhin.com/categories/tips-and-tricks/</link>
-    <description>Recent content in Tips and tricks on Maksim Tsiarokhin</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Tips and Tricks on Maksim Tsiarokhin</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Mar 2023 21:06:22 +0100</lastBuildDate><atom:link href="https://tsiarokhin.com/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Mar 2023 21:06:22 +0100</lastBuildDate>
+    <atom:link href="https://tsiarokhin.com/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to change D365FO environment tenant</title>
       <link>https://tsiarokhin.com/posts/change-d365fo-environment-tenant/</link>
       <pubDate>Sun, 12 Mar 2023 21:06:22 +0100</pubDate>
-      
       <guid>https://tsiarokhin.com/posts/change-d365fo-environment-tenant/</guid>
-      <description>Update 26 March 2023Link to headingI&amp;rsquo;ve recently found out that there is a simpler way to achieve this using d365fo.tools PowerShell module. Here is my article about it.
-Original articleLink to headingBefore platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe. It was very useful to quickly make your account an Admin, especially after a database restore.</description>
+      <description>&lt;h1 id=&#34;update-26-march-2023&#34;&gt;&#xD;&#xA;  &lt;em&gt;Update 26 March 2023&lt;/em&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#update-26-march-2023&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;I&amp;rsquo;ve recently found out that there is a simpler way to achieve this &lt;a href=&#34;https://github.com/d365collaborative/d365fo.tools/wiki/How-To-Provision-Environment-Tier1&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;using d365fo.tools PowerShell module&lt;/a&gt;. Here is &lt;a href=&#34;https://tsiarokhin.com/posts/d365fo-tools/&#34; &gt;my article about it&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;original-article&#34;&gt;&#xD;&#xA;  &lt;em&gt;Original article&lt;/em&gt;&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#original-article&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Before platform update 29, every dev box came with a tool called AdminUserProvisioning which could be found at &lt;code&gt;K:\AOSService\PackagesLocalDirectory\bin\AdminUserProvisioning.exe&lt;/code&gt;. It was very useful to quickly make your account an Admin, especially after a database restore. The tool has since been removed and replaced with a dll &lt;code&gt;Microsoft.Dynamics.AdminUserProvisioningLib.dll&lt;/code&gt;, which does not provide a GUI.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>You don&#39;t really need SysOperation controller</title>
       <link>https://tsiarokhin.com/posts/you-dont-need-sysoperation-controller/</link>
       <pubDate>Sat, 25 Feb 2023 19:54:37 +0100</pubDate>
-      
       <guid>https://tsiarokhin.com/posts/you-dont-need-sysoperation-controller/</guid>
-      <description>We all know the SysOperation framework - the successor to the RunBaseBatch. Whenever you need to add a new periodic job to the system you have to create the following items:
-Service class, which contains the code to perform the processing; (Optional) Data contract class, which contains the parameters for the job; (Optional) UI builder class, which allows you to customize the look of the prompt dialog; Controller class, which configures how to run the job; Action menu item pointing to your controller to let users run the job and configure security.</description>
+      <description>&lt;p&gt;We all know the SysOperation framework - the successor to the RunBaseBatch. Whenever you need to add a new periodic job to the system you have to create the following items:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Service class&lt;/strong&gt;, which contains the code to perform the processing;&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;(Optional)&lt;/em&gt; &lt;strong&gt;Data contract class&lt;/strong&gt;, which contains the parameters for the job;&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;(Optional)&lt;/em&gt; &lt;strong&gt;UI builder class&lt;/strong&gt;, which allows you to customize the look of the prompt dialog;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Controller class&lt;/strong&gt;, which configures how to run the job;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Action menu item&lt;/strong&gt; pointing to your controller to let users run the job and configure security.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;What if I told you that in most cases you don&amp;rsquo;t really need the controller? Less code is always good!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

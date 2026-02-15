@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>
+
+<head>
+  <title>
   AxDB snapshot: how to create and restore · Maksim Tsiarokhin
 </title>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 
@@ -13,21 +14,35 @@
 
 <meta name="author" content="Maksim Tsiarokhin">
 <meta name="description" content="When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
-Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots.">
+
+  Create snapshot
+  
+    
+    Link to heading
+  
+
+Fortunately, SQL server provides a quicker option - database snapshots. To create one, simply run the following query against AxDB:">
 <meta name="keywords" content="d365,d365fo,ax,axapta,microsoft,powerapp,fix,workaround,guide,blog,developer,notes,posts">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="AxDB snapshot: how to create and restore"/>
-<meta name="twitter:description" content="When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
-Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots."/>
 
-<meta property="og:title" content="AxDB snapshot: how to create and restore" />
-<meta property="og:description" content="When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
-Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-02-11T20:41:02+01:00" />
-<meta property="article:modified_time" content="2023-02-11T20:41:02+01:00" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AxDB snapshot: how to create and restore">
+  <meta name="twitter:description" content="When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
+Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots. To create one, simply run the following query against AxDB:">
+
+<meta property="og:url" content="https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/">
+  <meta property="og:site_name" content="Maksim Tsiarokhin">
+  <meta property="og:title" content="AxDB snapshot: how to create and restore">
+  <meta property="og:description" content="When you are working on a really hard-to-reproduce issue in D365FO and finally manage to do it, you wish there was an option to save this database state and quickly get back to it. Of course, you can always do a full AxDB database backup and restore it every time after an unsuccessful debug attempt, but it takes minutes to do.
+Create snapshotLink to headingFortunately, SQL server provides a quicker option - database snapshots. To create one, simply run the following query against AxDB:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-02-11T20:41:02+01:00">
+    <meta property="article:modified_time" content="2023-02-11T20:41:02+01:00">
+    <meta property="article:tag" content="D365FO">
+    <meta property="article:tag" content="SQL">
 
 
 
@@ -35,12 +50,14 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 <link rel="canonical" href="https://tsiarokhin.com/posts/axdb-snapshot-create-and-restore/">
 
 
-<link rel="preload" href="https://tsiarokhin.com/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://tsiarokhin.com/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.36f76aaf39a14ecf5c3a3c6250dcaf06c238b3d8365d17d646f95cb1874e852b.css" integrity="sha256-NvdqrzmhTs9cOjxiUNyvBsI4s9g2XRfWRvlcsYdOhSs=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="https://tsiarokhin.com/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css" integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -50,7 +67,7 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
   
     
     
-    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.593028e7f7ac55c003b79c230d1cd411bb4ca53b31556c3abb7f027170e646e9.css" integrity="sha256-WTAo5/esVcADt5wjDRzUEbtMpTsxVWw6u38CcXDmRuk=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="https://tsiarokhin.com/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -65,6 +82,7 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 
 
 
+<link rel="icon" type="image/svg+xml" href="https://tsiarokhin.com/images/favicon.svg" sizes="any">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://tsiarokhin.com/img/favicon-16x16.png" sizes="16x16">
 
@@ -77,7 +95,6 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 
 
 
-<meta name="generator" content="Hugo 0.109.0">
 
 
 
@@ -90,7 +107,7 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 
 
 
-  </head>
+</head>
 
 
 
@@ -101,7 +118,7 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
 </div>
 
@@ -109,19 +126,21 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
+    
     <a class="navigation-title" href="https://tsiarokhin.com/">
       Maksim Tsiarokhin
     </a>
     
+    
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
       <ul class="navigation-list">
         
           
             <li class="navigation-item">
-              <a class="navigation-link" href="https://tsiarokhin.com/posts/">Posts</a>
+              <a class="navigation-link " href="https://tsiarokhin.com/posts/">Posts</a>
             </li>
           
         
@@ -147,23 +166,23 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
               <time datetime="2023-02-11T20:41:02&#43;01:00">
                 February 11, 2023
               </time>
             </span>
             <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
               2-minute read
             </span>
           </div>
           
           <div class="categories">
-  <i class="fa fa-folder" aria-hidden="true"></i>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
     <a href="https://tsiarokhin.com/categories/snippets/">Snippets</a></div>
 
           <div class="tags">
-  <i class="fa fa-tag" aria-hidden="true"></i>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
       <a href="https://tsiarokhin.com/tags/d365fo/">D365FO</a>
     </span>
@@ -181,7 +200,7 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 <h2 id="create-snapshot">
   Create snapshot
   <a class="heading-link" href="#create-snapshot">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
@@ -189,22 +208,22 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB_MAT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XXX</span><span class="p">,</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FILENAME</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;J:\MSSQL_BACKUP\AxDB_MAT.ss&#39;</span><span class="p">)</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AS</span><span class="w"> </span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">AxDB</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="k">AS</span><span class="w"> </span><span class="n">SNAPSHOT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">AxDB</span><span class="p">;</span><span class="w">  
 </span></span></span></code></pre></div><p><code>AxDB_MAT</code> is the name of the snapshot, feel free to use your own, possibly including a case id. But you need to change <code>XXX</code> to a logical name used in SQL Server for an AxDB database. One of the ways to get is to simply run the above command with XXX and you&rsquo;ll see the required name in the error message.</p>
 <p>The execution should take less than a minute and you should see the newly created snapshot in the <code>Databases -&gt; Database Snapshots</code> folder in Object explorer. You can also create multiple database snapshots - simply run this query again with a different snapshot and filename. One caveat is - SQL Server does not allow you to restore the database from a snapshot if there is more the one of them. So simply remove all except the one you need before the next step.</p>
 <h2 id="restore-from-snapshot">
   Restore from snapshot
   <a class="heading-link" href="#restore-from-snapshot">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
 <p>To restore from a snapshot database needs to be temporarily switched to a single-user mode. That is unfortunate because it means you will have to stop IIS and Batch services before the restore and it always takes some time to bring them back up. If you know how to avoid it - please share in the comments below.</p>
 <p>Other than that, restoring from a snapshot is also quite easy - simply run the following query against AxDB, replacing <code>AxDB_MAT</code> with the name you used:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">SINGLE_USER</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">IMMEDIATE</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">RESTORE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB</span><span class="w"> </span><span class="k">FROM</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="n">RESTORE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB</span><span class="w"> </span><span class="k">FROM</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">DATABASE_SNAPSHOT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;AxDB_MAT&#39;</span><span class="p">;</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">MULTI_USER</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AxDB</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">MULTI_USER</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>This operation is also way quicker than a full restore and should only take about a minute. After that start IIS and Batch services back up and your reproduction scenario is ready for another debug attempt. Good luck!</p>
 
       </div>
@@ -233,6 +252,9 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 	</div>Share</div>
 </a>
 <div class="commentbox"></div>
+        
+        
+        
         
         
       </footer>
@@ -280,6 +302,24 @@ Create snapshotLink to headingFortunately, SQL server provides a quicker optio
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 <script>
 let bodyStyle = getComputedStyle(document.body);
@@ -294,5 +334,4 @@ document.addEventListener("themeChanged", function(){
  commentBoxIframe.src = commentBoxUrl.toString();
  });
 </script></body>
-
 </html>
